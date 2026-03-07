@@ -1,0 +1,16 @@
+{
+    "name": "projeto-teste-automatizado",
+    "version": "1.0.0",
+    "description": "Testes E2E (UI + API) com Cypress para a plataforma ServeRest",
+    "author": "Lucas Lopes <lucas@techlucas.com.br>",
+    "license": "MIT",
+    "scripts": {
+        "cy:open": "cypress open",
+        "cy:run": "cypress run",
+        "cy:run:ui": "cypress run --spec 'cypress/e2e/ui/**/*.cy.js'",
+        "cy:run:api": "cypress run --spec 'cypress/e2e/api/**/*.cy.js'"
+    },
+    "devDependencies": {
+        "cypress": "^13.0.0"
+    }
+}
