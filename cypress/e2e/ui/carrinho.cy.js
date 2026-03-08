@@ -1,3 +1,5 @@
+import ProductsPage from '../../support/pages/ProductsPage'
+
 describe('Test Cart', () => {
   let data
   let token
@@ -33,7 +35,7 @@ describe('Test Cart', () => {
     if (product && product._id) {
       cy.request({
         method: 'DELETE',
-        url: `https://serverest.dev/produtos/${product._id}`,
+        url: Cypress.env('apiBaseUrl') + `produtos/${product._id}`,
         headers: {
           authorization: token
         },
@@ -43,20 +45,16 @@ describe('Test Cart', () => {
   })
 
   it('Add item to a Cart', () => {
-    cy.get('[data-testid="pesquisar"]').type(product.nome)
-    cy.get('[data-testid="botaoPesquisar"]').click()
-    cy.contains(product.nome).should('be.visible')
-    cy.get('[data-testid="adicionarNaLista"]').click()
+    ProductsPage.searchProduct(product.nome)
+    ProductsPage.assertProductVisible(product.nome)
+    ProductsPage.addToCart()
   })
 
-
   it('Clean the Cart', () => {
-    //cy.login(data.email, data.password)
-    cy.get('[data-testid="pesquisar"]').type(product.nome)
-    cy.get('[data-testid="botaoPesquisar"]').click()
-    cy.get('[data-testid="adicionarNaLista"]').click()
-    cy.contains('h1', 'Lista de Compras')
-    cy.get('[data-testid="limparLista"]').click()
-    cy.get('[data-testid="shopping-cart-empty-message"]').contains('Seu carrinho está vazio')
+    ProductsPage.searchProduct(product.nome)
+    ProductsPage.addToCart()
+    ProductsPage.assertCartPageVisible()
+    ProductsPage.clearCart()
+    ProductsPage.assertCartIsEmpty()
   })
 })
