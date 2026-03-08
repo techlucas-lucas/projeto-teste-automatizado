@@ -7,8 +7,7 @@ class RegisterPage {
         this.registerButton = '[data-testid="cadastrar"]'
     }
     visit() {
-        cy.visit('/')
-        cy.get(this.registerButton).click()
+        cy.visit('/cadastrarusuarios')
         return this
     }
     fillName(name) {

@@ -1,13 +1,28 @@
-describe('API - Login Test', () => {
+describe('API - Login', () => {
 
-  let data;
+  let dynamicUser;
+
   before(() => {
     cy.fixture('dataTest').then((tData) => {
-      data = tData;
+      dynamicUser = {
+        nome: tData.name,
+        email: `api_${Date.now()}@qa.com`,
+        password: tData.password,
+        administrador: "true"
+      }
+      cy.createUserByApi(dynamicUser).then((userWithId) => {
+        dynamicUser = userWithId
+      })
     });
   });
 
-  it('Login - Error - Invalid Credentials', () => {
+  after(() => {
+    if (dynamicUser && dynamicUser.email) {
+      cy.cleanupUserByEmail(dynamicUser.email)
+    }
+  })
+
+  it('should return 401 for invalid credentials', () => {
     cy.request({
       method: 'POST',
       url: Cypress.env('apiBaseUrl') + 'login',
@@ -26,7 +41,7 @@ describe('API - Login Test', () => {
     })
   })
 
-  it('Login Success', () => {
-    cy.apiLogin(data.email, data.password)
+  it('should login successfully', () => {
+    cy.apiLogin(dynamicUser.email, dynamicUser.password)
   })
 })

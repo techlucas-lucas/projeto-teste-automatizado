@@ -6,15 +6,15 @@ class LoginPage {
         this.logoutButton = '[data-testid="logout"]'
     }
     visit() {
-        cy.visit('/')
+        cy.visit('/login')
         return this
     }
     fillEmail(email) {
-        cy.get(this.emailInput).type(email)
+        cy.get(this.emailInput).clear().type(email)
         return this
     }
     fillPassword(password) {
-        cy.get(this.passwordInput).type(password)
+        cy.get(this.passwordInput).clear().type(password)
         return this
     }
     clickLogin() {

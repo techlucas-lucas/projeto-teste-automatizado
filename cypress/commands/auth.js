@@ -1,16 +1,7 @@
-Cypress.Commands.add('login', (email, password) => {
-    cy.visit('/')
-    cy.get('[data-testid="email"]').type(email)
-    cy.get('[data-testid="senha"]').type(password)
-    cy.get('[data-testid="entrar"]').click()
-    cy.url().should('not.include', '/login')
-    cy.get('[data-testid="logout"]').should('be.visible')
-})
-
 Cypress.Commands.add('apiLogin', (email, password) => {
     cy.request({
         method: 'POST',
-        url: Cypress.env('apiBaseUrl') + 'login',
+        url: `${Cypress.env('apiBaseUrl')}login`,
         headers: {
             "Content-Type": "application/json"
         },

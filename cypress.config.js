@@ -9,13 +9,13 @@ module.exports = defineConfig({
     viewportHeight: 720,
     defaultCommandTimeout: 10000,
     retries: {
-      runMode: 2,       // retenta 2x no CI
-      openMode: 0        // não retenta no modo interativo
+      runMode: 2,
+      openMode: 0
     },
     video: false,
     screenshotOnRunFailure: true,
     setupNodeEvents(on, config) {
-      // implement node event listeners here
+
     },
   },
 });

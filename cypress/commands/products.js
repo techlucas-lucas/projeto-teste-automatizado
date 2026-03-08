@@ -1,7 +1,7 @@
 Cypress.Commands.add('createProductByApi', (token, product) => {
     return cy.request({
         method: 'POST',
-        url: Cypress.env('apiBaseUrl') + 'produtos',
+        url: `${Cypress.env('apiBaseUrl')}produtos`,
         headers: {
             authorization: token
         },
