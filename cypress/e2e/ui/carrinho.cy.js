@@ -48,6 +48,7 @@ describe('Test Cart', () => {
     ProductsPage.searchProduct(product.nome)
     ProductsPage.assertProductVisible(product.nome)
     ProductsPage.addToCart()
+    ProductsPage.assertCartPageVisible()
   })
 
   it('Clean the Cart', () => {

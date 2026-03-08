@@ -90,4 +90,4 @@ As configuracoes presentes no `cypress.config.js` ja contemplam robustez com o u
 
 ## Autoria
 Projeto elaborado baseado no tech challenge de QA.
-Lucas Lopes
+Lucas Gabriel Lopes Figueiró

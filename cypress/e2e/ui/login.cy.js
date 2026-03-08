@@ -6,14 +6,14 @@ describe('Login Test', () => {
       data = tData;
     });
   });
-  it('Login com erro', () => {
+  it('Login - Error - Invalid Credentials', () => {
     LoginPage.visit()
     LoginPage.fillEmail('teste@lucas.com')
     LoginPage.fillPassword('1')
     LoginPage.clickLogin()
     LoginPage.assertLoginError('Email e/ou senha inválidos')
   })
-  it('Login com sucesso', () => {
+  it('Login - Success', () => {
     LoginPage.login(data.email, data.password)
     LoginPage.assertLoginSuccess()
   })

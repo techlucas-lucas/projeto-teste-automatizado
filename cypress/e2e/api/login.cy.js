@@ -7,7 +7,7 @@ describe('API - Login Test', () => {
     });
   });
 
-  it('Login com erro', () => {
+  it('Login - Error - Invalid Credentials', () => {
     cy.request({
       method: 'POST',
       url: Cypress.env('apiBaseUrl') + 'login',
