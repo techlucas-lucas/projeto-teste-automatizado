@@ -4,3 +4,12 @@ cypress/screenshots/
 cypress/downloads/
 .env
 .DS_Store
+*.log
+run_cy*.js
+cypress_*.txt
+result.json
+result.txt
+output.txt
+full_results.json
+carrinho-results.json
+test_results.txt

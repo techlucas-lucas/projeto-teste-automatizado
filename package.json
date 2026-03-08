@@ -8,9 +8,12 @@
         "cy:open": "cypress open",
         "cy:run": "cypress run",
         "cy:run:ui": "cypress run --spec 'cypress/e2e/ui/**/*.cy.js'",
-        "cy:run:api": "cypress run --spec 'cypress/e2e/api/**/*.cy.js'"
+        "cy:run:api": "cypress run --spec 'cypress/e2e/api/**/*.cy.js'",
+        "lint": "eslint 'cypress/**/*.js'"
     },
     "devDependencies": {
-        "cypress": "^13.0.0"
+        "cypress": "^13.0.0",
+        "eslint": "^8.0.0",
+        "eslint-plugin-cypress": "^2.0.0"
     }
 }
