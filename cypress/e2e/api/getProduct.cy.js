@@ -2,7 +2,7 @@ describe('API - GET Product Test', () => {
   it('Get Product Success', () => {
     cy.request({
       method: 'GET',
-      url: 'https://serverest.dev/produtos',
+      url: Cypress.env('apiBaseUrl') + 'produtos',
       headers: {
         accept: 'application/json'
       }
